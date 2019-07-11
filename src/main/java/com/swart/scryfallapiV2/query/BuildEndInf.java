@@ -2,7 +2,11 @@ package com.swart.scryfallapiV2.query;
 
 import java.net.URL;
 
-public interface BuildUrlEndInf {
+public interface BuildEndInf {
+
+  String build();
+
+  String buildVerbose();
 
   URL buildUrl();
 

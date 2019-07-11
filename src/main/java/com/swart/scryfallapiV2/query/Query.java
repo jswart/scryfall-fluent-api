@@ -1,9 +1,9 @@
 package com.swart.scryfallapiV2.query;
 
-public class Query implements QueryInf {
+public class Query {
 
-  public QueryCardsInf card() {
-    return new QueryCards();
+  public static QueryCardsInf cards() {
+    return new QueryCardsImpl();
   }
 
 }
