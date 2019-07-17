@@ -5,7 +5,7 @@ package com.swart.scryfallapiV2.query.search;
  * @author jake swart
  *
  */
-public enum CardSearchFormatEnum {
+public enum CardsSearchFormatEnum {
   JSON, CSV;
 
   @Override

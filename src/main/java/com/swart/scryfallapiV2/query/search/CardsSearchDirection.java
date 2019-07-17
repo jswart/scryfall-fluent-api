@@ -5,8 +5,8 @@ package com.swart.scryfallapiV2.query.search;
  * @author jake swart
  *
  */
-public enum CardSearchOrder {
-  NAME, SET, RELEASED, RARITY, COLOR, USD, TI, EUR, CMC, POWER, TOUGHNESS, EDHREC, ARTIST;
+public enum CardsSearchDirection {
+  AUTO, ASC, DESC;
 
   @Override
   public String toString() {

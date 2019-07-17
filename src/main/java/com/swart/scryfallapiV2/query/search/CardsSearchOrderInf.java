@@ -1,6 +1,6 @@
 package com.swart.scryfallapiV2.query.search;
 
-public interface CardSearchOrderInf {
+public interface CardsSearchOrderInf {
 
   CardsSearchInf name();
 

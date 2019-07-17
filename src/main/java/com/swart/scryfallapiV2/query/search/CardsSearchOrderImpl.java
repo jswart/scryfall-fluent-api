@@ -1,75 +1,75 @@
 package com.swart.scryfallapiV2.query.search;
 
-public class CardSearchOrderImpl implements CardSearchOrderInf {
+public class CardsSearchOrderImpl implements CardsSearchOrderInf {
 
   CardsSearch cardSearch = null;
 
-  protected CardSearchOrderImpl(final CardsSearch cardSearch) {
+  protected CardsSearchOrderImpl(final CardsSearch cardSearch) {
     this.cardSearch = cardSearch;
   }
 
   public CardsSearchInf name() {
-    cardSearch.setOrder(CardSearchOrder.NAME);
+    cardSearch.setOrder(CardsSearchOrder.NAME);
     return cardSearch;
   }
 
   public CardsSearchInf set() {
-    cardSearch.setOrder(CardSearchOrder.SET);
+    cardSearch.setOrder(CardsSearchOrder.SET);
     return cardSearch;
   }
 
   public CardsSearchInf released() {
-    cardSearch.setOrder(CardSearchOrder.RELEASED);
+    cardSearch.setOrder(CardsSearchOrder.RELEASED);
     return cardSearch;
   }
 
   public CardsSearchInf rarity() {
-    cardSearch.setOrder(CardSearchOrder.RARITY);
+    cardSearch.setOrder(CardsSearchOrder.RARITY);
     return cardSearch;
   }
 
   public CardsSearchInf color() {
-    cardSearch.setOrder(CardSearchOrder.COLOR);
+    cardSearch.setOrder(CardsSearchOrder.COLOR);
     return cardSearch;
   }
 
   public CardsSearchInf usd() {
-    cardSearch.setOrder(CardSearchOrder.USD);
+    cardSearch.setOrder(CardsSearchOrder.USD);
     return cardSearch;
   }
 
   public CardsSearchInf ti() {
-    cardSearch.setOrder(CardSearchOrder.TI);
+    cardSearch.setOrder(CardsSearchOrder.TI);
     return cardSearch;
   }
 
   public CardsSearchInf eur() {
-    cardSearch.setOrder(CardSearchOrder.EUR);
+    cardSearch.setOrder(CardsSearchOrder.EUR);
     return cardSearch;
   }
 
   public CardsSearchInf cmc() {
-    cardSearch.setOrder(CardSearchOrder.CMC);
+    cardSearch.setOrder(CardsSearchOrder.CMC);
     return cardSearch;
   }
 
   public CardsSearchInf power() {
-    cardSearch.setOrder(CardSearchOrder.POWER);
+    cardSearch.setOrder(CardsSearchOrder.POWER);
     return cardSearch;
   }
 
   public CardsSearchInf toughness() {
-    cardSearch.setOrder(CardSearchOrder.TOUGHNESS);
+    cardSearch.setOrder(CardsSearchOrder.TOUGHNESS);
     return cardSearch;
   }
 
   public CardsSearchInf edhrec() {
-    cardSearch.setOrder(CardSearchOrder.EDHREC);
+    cardSearch.setOrder(CardsSearchOrder.EDHREC);
     return cardSearch;
   }
 
   public CardsSearchInf artist() {
-    cardSearch.setOrder(CardSearchOrder.ARTIST);
+    cardSearch.setOrder(CardsSearchOrder.ARTIST);
     return cardSearch;
   }
 

@@ -1,20 +1,20 @@
 package com.swart.scryfallapiV2.query.search;
 
-public class CardSearchFormatImpl implements CardSearchFormatInf {
+public class CardsSearchFormatImpl implements CardsSearchFormatInf {
 
   CardsSearch cardSearch = null;
 
-  protected CardSearchFormatImpl(final CardsSearch cardSearch) {
+  protected CardsSearchFormatImpl(final CardsSearch cardSearch) {
     this.cardSearch = cardSearch;
   }
 
   public CardsSearchInf json() {
-    cardSearch.setFormat(CardSearchFormatEnum.JSON);
+    cardSearch.setFormat(CardsSearchFormatEnum.JSON);
     return cardSearch;
   }
 
   public CardsSearchInf csv() {
-    cardSearch.setFormat(CardSearchFormatEnum.CSV);
+    cardSearch.setFormat(CardsSearchFormatEnum.CSV);
     return cardSearch;
   }
 

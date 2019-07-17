@@ -1,6 +1,6 @@
 package com.swart.scryfallapiV2.query.search;
 
-public interface CardSearchFormatInf {
+public interface CardsSearchFormatInf {
 
   CardsSearchInf json();
 

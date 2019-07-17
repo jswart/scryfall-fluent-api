@@ -9,27 +9,27 @@ import com.swart.scryfallapiV2.util.UrlUtil;
 
 public class CardsSearch implements CardsSearchInf {
 
-  private final CardSearchUniqueInf uniqueInst;
-  private final CardSearchOrderInf orderInst;
-  private final CardSearchDirectionInf directionInst;
-  private final CardSearchFormatInf formatInst;
+  private final CardsSearchUniqueInf uniqueInst;
+  private final CardsSearchOrderInf orderInst;
+  private final CardsSearchDirectionInf directionInst;
+  private final CardsSearchFormatInf formatInst;
 
   private String query = "";
-  private CardSearchUnique unique = CardSearchUnique.CARDS;
-  private CardSearchOrder order = CardSearchOrder.NAME;
-  private CardSearchDirection direction = CardSearchDirection.AUTO;
+  private CardsSearchUnique unique = CardsSearchUnique.CARDS;
+  private CardsSearchOrder order = CardsSearchOrder.NAME;
+  private CardsSearchDirection direction = CardsSearchDirection.AUTO;
   private Boolean includeExtras = Boolean.FALSE;
   private Boolean includeMultilingual = Boolean.FALSE;
   private Boolean includeVariations = Boolean.FALSE;
   private Integer page = 1;
-  private CardSearchFormatEnum format = CardSearchFormatEnum.JSON;
+  private CardsSearchFormatEnum format = CardsSearchFormatEnum.JSON;
   private Boolean pretty = Boolean.FALSE;
 
   public CardsSearch() {
-    uniqueInst = new CardSearchUniqueImpl(this);
-    orderInst = new CardSearchOrderImpl(this);
-    directionInst = new CardSearchDirectionImpl(this);
-    formatInst = new CardSearchFormatImpl(this);
+    uniqueInst = new CardsSearchUniqueImpl(this);
+    orderInst = new CardsSearchOrderImpl(this);
+    directionInst = new CardsSearchDirectionImpl(this);
+    formatInst = new CardsSearchFormatImpl(this);
   }
 
   public URL buildUrl() {
@@ -67,15 +67,15 @@ public class CardsSearch implements CardsSearchInf {
   }
 
   /* Client options */
-  public CardSearchUniqueInf withUnique() {
+  public CardsSearchUniqueInf withUnique() {
     return uniqueInst;
   }
 
-  public CardSearchOrderInf withOrder() {
+  public CardsSearchOrderInf withOrder() {
     return orderInst;
   }
 
-  public CardSearchDirectionInf withDirection() {
+  public CardsSearchDirectionInf withDirection() {
     return directionInst;
   }
 
@@ -106,29 +106,29 @@ public class CardsSearch implements CardsSearchInf {
     return this;
   }
 
-  public CardsSearchInf withpretty() {
+  public CardsSearchInf withPretty() {
     this.pretty = Boolean.TRUE;
     return this;
   }
 
   /* Option implementation accessors into this class */
-  public void setFormat(final CardSearchFormatEnum format) {
+  public void setFormat(final CardsSearchFormatEnum format) {
     this.format = format;
   }
 
-  public void setUnique(final CardSearchUnique unique) {
+  public void setUnique(final CardsSearchUnique unique) {
     this.unique = unique;
   }
 
-  public void setOrder(final CardSearchOrder order) {
+  public void setOrder(final CardsSearchOrder order) {
     this.order = order;
   }
 
-  public void setDirection(final CardSearchDirection direction) {
+  public void setDirection(final CardsSearchDirection direction) {
     this.direction = direction;
   }
 
-  public CardSearchFormatInf withFormat() {
+  public CardsSearchFormatInf withFormat() {
     return formatInst;
   }
 
@@ -156,13 +156,13 @@ public class CardsSearch implements CardsSearchInf {
     if (!query.isEmpty()) {
       params.add(String.format("q=%s", UrlUtil.urlEncodeString(query)));
     }
-    if (unique != CardSearchUnique.CARDS) {
+    if (unique != CardsSearchUnique.CARDS) {
       params.add(String.format("unique=%s", this.unique.toString()));
     }
-    if (order != CardSearchOrder.NAME) {
+    if (order != CardsSearchOrder.NAME) {
       params.add(String.format("order=%s", this.order.toString()));
     }
-    if (direction != CardSearchDirection.AUTO) {
+    if (direction != CardsSearchDirection.AUTO) {
       params.add(String.format("dir=%s", this.direction.toString()));
     }
     if (includeExtras) {
@@ -177,7 +177,7 @@ public class CardsSearch implements CardsSearchInf {
     if (page != 1) {
       params.add(String.format("page=%s", this.page));
     }
-    if (format != CardSearchFormatEnum.JSON) {
+    if (format != CardsSearchFormatEnum.JSON) {
       params.add(String.format("format=%s", this.format.toString()));
     }
     if (pretty) {

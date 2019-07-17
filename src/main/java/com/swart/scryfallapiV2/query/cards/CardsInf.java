@@ -1,8 +1,16 @@
-package com.swart.scryfallapiV2.query;
+package com.swart.scryfallapiV2.query.cards;
 
+import com.swart.scryfallapiV2.query.BuildEndInf;
 import com.swart.scryfallapiV2.query.search.CardsSearchInf;
 
-public interface QueryCardsInf {
+public interface CardsInf extends BuildEndInf {
+
+  // /cards
+  CardsInf withPage(int pageNumber);
+
+  CardsFormatInf withFormat();
+
+  CardsInf withPretty();
 
   // /cards/search
   CardsSearchInf search();

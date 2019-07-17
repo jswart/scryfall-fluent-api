@@ -1,25 +1,25 @@
 package com.swart.scryfallapiV2.query.search;
 
-public class CardSearchDirectionImpl implements CardSearchDirectionInf {
+public class CardsSearchDirectionImpl implements CardsSearchDirectionInf {
 
   CardsSearch cardSearch = null;
 
-  protected CardSearchDirectionImpl(final CardsSearch cardSearch) {
+  protected CardsSearchDirectionImpl(final CardsSearch cardSearch) {
     this.cardSearch = cardSearch;
   }
 
   public CardsSearchInf auto() {
-    cardSearch.setDirection(CardSearchDirection.AUTO);
+    cardSearch.setDirection(CardsSearchDirection.AUTO);
     return cardSearch;
   }
 
   public CardsSearchInf asc() {
-    cardSearch.setDirection(CardSearchDirection.ASC);
+    cardSearch.setDirection(CardsSearchDirection.ASC);
     return cardSearch;
   }
 
   public CardsSearchInf desc() {
-    cardSearch.setDirection(CardSearchDirection.DESC);
+    cardSearch.setDirection(CardsSearchDirection.DESC);
     return cardSearch;
   }
 

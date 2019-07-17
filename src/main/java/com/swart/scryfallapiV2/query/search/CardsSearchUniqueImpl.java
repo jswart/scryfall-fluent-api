@@ -1,25 +1,25 @@
 package com.swart.scryfallapiV2.query.search;
 
-public class CardSearchUniqueImpl implements CardSearchUniqueInf {
+public class CardsSearchUniqueImpl implements CardsSearchUniqueInf {
 
   CardsSearch cardSearch = null;
 
-  protected CardSearchUniqueImpl(final CardsSearch cardSearch) {
+  protected CardsSearchUniqueImpl(final CardsSearch cardSearch) {
     this.cardSearch = cardSearch;
   }
 
   public CardsSearchInf cards() {
-    cardSearch.setUnique(CardSearchUnique.CARDS);
+    cardSearch.setUnique(CardsSearchUnique.CARDS);
     return cardSearch;
   }
 
   public CardsSearchInf art() {
-    cardSearch.setUnique(CardSearchUnique.ART);
+    cardSearch.setUnique(CardsSearchUnique.ART);
     return cardSearch;
   }
 
   public CardsSearchInf prints() {
-    cardSearch.setUnique(CardSearchUnique.PRINTS);
+    cardSearch.setUnique(CardsSearchUnique.PRINTS);
     return cardSearch;
   }
 

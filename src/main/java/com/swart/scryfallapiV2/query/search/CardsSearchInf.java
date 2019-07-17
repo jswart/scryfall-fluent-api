@@ -6,11 +6,11 @@ public interface CardsSearchInf extends BuildEndInf {
 
   CardsSearchInf withQuery(String query);
 
-  CardSearchUniqueInf withUnique();
+  CardsSearchUniqueInf withUnique();
 
-  CardSearchOrderInf withOrder();
+  CardsSearchOrderInf withOrder();
 
-  CardSearchDirectionInf withDirection();
+  CardsSearchDirectionInf withDirection();
 
   CardsSearchInf withIncludeExtras();
 
@@ -20,8 +20,8 @@ public interface CardsSearchInf extends BuildEndInf {
 
   CardsSearchInf withPage(int pageNumber);
 
-  CardSearchFormatInf withFormat();
+  CardsSearchFormatInf withFormat();
 
-  CardsSearchInf withpretty();
+  CardsSearchInf withPretty();
 
 }
