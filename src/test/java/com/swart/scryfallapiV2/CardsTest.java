@@ -1,4 +1,4 @@
-package com.swart.scryfallapiV2.query.search;
+package com.swart.scryfallapiV2;
 
 import static org.junit.Assert.assertEquals;
 

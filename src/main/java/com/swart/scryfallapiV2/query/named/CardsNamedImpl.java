@@ -7,7 +7,7 @@ import java.util.List;
 import com.swart.scryfallapiV2.query.ScryFallApiConstants;
 import com.swart.scryfallapiV2.util.UrlUtil;
 
-public class CardsNamed implements CardsNamedInf {
+public class CardsNamedImpl implements CardsNamedInf {
 
   private final CardsNamedFormatInf formatInst;
   private final CardsNamedSetInf namedSetInst;
@@ -22,7 +22,7 @@ public class CardsNamed implements CardsNamedInf {
   private CardsNamedVersionEnum version = CardsNamedVersionEnum.LARGE;
   private Boolean pretty = Boolean.FALSE;
 
-  public CardsNamed() {
+  public CardsNamedImpl() {
     formatInst = new CardsNamedFormatImpl(this);
     namedSetInst = new CardsNamedSetImpl(this);
     faceInst = new CardsNamedFaceImpl(this);
@@ -114,10 +114,24 @@ public class CardsNamed implements CardsNamedInf {
 
   private List<String> fromVerbose() {
 
+    if (exact.isEmpty() && fuzzy.isEmpty()) {
+      throw new IllegalArgumentException("Either exact or fuzzy must be defined.");
+    }
+
+    if (!exact.isEmpty()) {
+      exact = exact.replaceAll(" ", "+");
+    }
+
+    if (!fuzzy.isEmpty()) {
+      fuzzy = fuzzy.replaceAll(" ", "+");
+    }
+
     final List<String> params = new ArrayList<String>();
     params.add(String.format("exact=%s", exact));
     params.add(String.format("fuzzy=%s", fuzzy));
-    params.add(String.format("set=%s", this.set.toString()));
+    if (set != null) {
+      params.add(String.format("set=%s", this.set.toString()));
+    }
     params.add(String.format("format=%s", this.format.toString()));
     params.add(String.format("face=%s", this.face.toString()));
     params.add(String.format("version=%s", this.version.toString()));
@@ -127,25 +141,37 @@ public class CardsNamed implements CardsNamedInf {
 
   private List<String> from() {
 
+    if (exact.isEmpty() && fuzzy.isEmpty()) {
+      throw new IllegalArgumentException("Either exact or fuzzy must be defined.");
+    }
+
+    if (!exact.isEmpty()) {
+      exact = exact.replaceAll(" ", "+");
+    }
+
+    if (!fuzzy.isEmpty()) {
+      fuzzy = fuzzy.replaceAll(" ", "+");
+    }
+
     final List<String> params = new ArrayList<String>();
 
     if (!exact.isEmpty()) {
       params.add(String.format("exact=%s", exact));
     }
     if (!fuzzy.isEmpty()) {
-      params.add(String.format("fuzzy=%s", exact));
+      params.add(String.format("fuzzy=%s", fuzzy));
     }
     if (set != null) {
-      params.add(String.format("set=%s", exact));
+      params.add(String.format("set=%s", set));
     }
     if (format != CardsNamedFormatEnum.JSON) {
-      params.add(String.format("format=%s", exact));
+      params.add(String.format("format=%s", format));
     }
     if (face != CardsNamedFaceEnum.FRONT) {
-      params.add(String.format("face=%s", exact));
+      params.add(String.format("face=%s", face));
     }
     if (version != CardsNamedVersionEnum.LARGE) {
-      params.add(String.format("version=%s", exact));
+      params.add(String.format("version=%s", version));
     }
     if (pretty) {
       params.add(String.format("pretty=%s", this.pretty.toString()));

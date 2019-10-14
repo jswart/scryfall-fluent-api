@@ -2,10 +2,10 @@ package com.swart.scryfallapiV2.query.named;
 
 public class CardsNamedVersionImpl implements CardsNamedVersionInf {
 
-  CardsNamed cardsNamed = null;
+  CardsNamedImpl cardsNamed = null;
 
-  protected CardsNamedVersionImpl(final CardsNamed cardSearch) {
-    this.cardsNamed = cardSearch;
+  protected CardsNamedVersionImpl(final CardsNamedImpl cardNamed) {
+    this.cardsNamed = cardNamed;
   }
 
   public CardsNamedInf small() {

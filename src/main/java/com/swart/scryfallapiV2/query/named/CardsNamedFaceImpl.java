@@ -2,10 +2,10 @@ package com.swart.scryfallapiV2.query.named;
 
 public class CardsNamedFaceImpl implements CardsNamedFaceInf {
 
-  CardsNamed cardsNamed = null;
+  CardsNamedImpl cardsNamed = null;
 
-  protected CardsNamedFaceImpl(final CardsNamed cardSearch) {
-    this.cardsNamed = cardSearch;
+  protected CardsNamedFaceImpl(final CardsNamedImpl cardNamed) {
+    this.cardsNamed = cardNamed;
   }
 
   public CardsNamedInf front() {

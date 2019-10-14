@@ -10,7 +10,7 @@ public class AppTest {
 
   @Test
   public void test() {
-    final URL url = new Query().cards().search().withUnique().art().buildVerboseUrl();
+    final URL url = Query.cards().search().withUnique().art().buildVerboseUrl();
     System.out.println(url.toString());
   }
 

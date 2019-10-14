@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.swart.scryfallapiV2.query.ScryFallApiConstants;
+import com.swart.scryfallapiV2.query.named.CardsNamedImpl;
+import com.swart.scryfallapiV2.query.named.CardsNamedInf;
 import com.swart.scryfallapiV2.query.search.CardsSearch;
 import com.swart.scryfallapiV2.query.search.CardsSearchInf;
 import com.swart.scryfallapiV2.util.UrlUtil;
@@ -13,6 +15,10 @@ public class CardsImpl implements CardsInf {
 
   public CardsSearchInf search() {
     return new CardsSearch();
+  }
+
+  public CardsNamedInf named() {
+    return new CardsNamedImpl();
   }
 
   private final CardsFormatInf formatInst;

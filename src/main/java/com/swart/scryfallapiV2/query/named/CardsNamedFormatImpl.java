@@ -2,25 +2,25 @@ package com.swart.scryfallapiV2.query.named;
 
 public class CardsNamedFormatImpl implements CardsNamedFormatInf {
 
-  CardsNamed cardSearch = null;
+  CardsNamedImpl cardNamed = null;
 
-  protected CardsNamedFormatImpl(final CardsNamed cardSearch) {
-    this.cardSearch = cardSearch;
+  protected CardsNamedFormatImpl(final CardsNamedImpl cardNamed) {
+    this.cardNamed = cardNamed;
   }
 
   public CardsNamedInf json() {
-    cardSearch.setFormat(CardsNamedFormatEnum.JSON);
-    return cardSearch;
+    cardNamed.setFormat(CardsNamedFormatEnum.JSON);
+    return cardNamed;
   }
 
   public CardsNamedInf text() {
-    cardSearch.setFormat(CardsNamedFormatEnum.TEXT);
-    return cardSearch;
+    cardNamed.setFormat(CardsNamedFormatEnum.TEXT);
+    return cardNamed;
   }
 
   public CardsNamedInf image() {
-    cardSearch.setFormat(CardsNamedFormatEnum.IMAGE);
-    return cardSearch;
+    cardNamed.setFormat(CardsNamedFormatEnum.IMAGE);
+    return cardNamed;
   }
 
 }

@@ -2,9 +2,9 @@ package com.swart.scryfallapiV2.query.named;
 
 public class CardsNamedSetImpl implements CardsNamedSetInf {
 
-  private CardsNamed cardsNamed = null;
+  private CardsNamedImpl cardsNamed = null;
 
-  public CardsNamedSetImpl(final CardsNamed cardsNamed) {
+  public CardsNamedSetImpl(final CardsNamedImpl cardsNamed) {
     this.cardsNamed = cardsNamed;
   }
 
