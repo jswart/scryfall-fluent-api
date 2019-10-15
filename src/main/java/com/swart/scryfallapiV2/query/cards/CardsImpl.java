@@ -9,14 +9,16 @@ import com.swart.scryfallapiV2.query.cards.autocomplete.CardsAutoCompleteImpl;
 import com.swart.scryfallapiV2.query.cards.autocomplete.CardsAutoCompleteInf;
 import com.swart.scryfallapiV2.query.cards.named.CardsNamedImpl;
 import com.swart.scryfallapiV2.query.cards.named.CardsNamedInf;
-import com.swart.scryfallapiV2.query.cards.search.CardsSearch;
+import com.swart.scryfallapiV2.query.cards.random.CardsRandomImpl;
+import com.swart.scryfallapiV2.query.cards.random.CardsRandomInf;
+import com.swart.scryfallapiV2.query.cards.search.CardsSearchImpl;
 import com.swart.scryfallapiV2.query.cards.search.CardsSearchInf;
 import com.swart.scryfallapiV2.util.UrlUtil;
 
 public class CardsImpl implements CardsInf {
 
   public CardsSearchInf search() {
-    return new CardsSearch();
+    return new CardsSearchImpl();
   }
 
   public CardsNamedInf named() {
@@ -25,6 +27,10 @@ public class CardsImpl implements CardsInf {
 
   public CardsAutoCompleteInf autocomplete() {
     return new CardsAutoCompleteImpl();
+  }
+
+  public CardsRandomInf random() {
+    return new CardsRandomImpl();
   }
 
   private final CardsFormatInf formatInst;

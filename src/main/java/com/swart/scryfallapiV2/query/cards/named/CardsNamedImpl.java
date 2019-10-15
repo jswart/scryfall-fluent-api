@@ -118,17 +118,9 @@ public class CardsNamedImpl implements CardsNamedInf {
       throw new IllegalArgumentException("Either exact or fuzzy must be defined.");
     }
 
-    if (!exact.isEmpty()) {
-      exact = exact.replaceAll(" ", "+");
-    }
-
-    if (!fuzzy.isEmpty()) {
-      fuzzy = fuzzy.replaceAll(" ", "+");
-    }
-
     final List<String> params = new ArrayList<String>();
-    params.add(String.format("exact=%s", exact));
-    params.add(String.format("fuzzy=%s", fuzzy));
+    params.add(String.format("exact=%s", UrlUtil.urlEncodeString(exact)));
+    params.add(String.format("fuzzy=%s", UrlUtil.urlEncodeString(fuzzy)));
     if (set != null) {
       params.add(String.format("set=%s", this.set.toString()));
     }
@@ -145,21 +137,12 @@ public class CardsNamedImpl implements CardsNamedInf {
       throw new IllegalArgumentException("Either exact or fuzzy must be defined.");
     }
 
-    if (!exact.isEmpty()) {
-      exact = exact.replaceAll(" ", "+");
-    }
-
-    if (!fuzzy.isEmpty()) {
-      fuzzy = fuzzy.replaceAll(" ", "+");
-    }
-
     final List<String> params = new ArrayList<String>();
-
     if (!exact.isEmpty()) {
-      params.add(String.format("exact=%s", exact));
+      params.add(String.format("exact=%s", UrlUtil.urlEncodeString(exact)));
     }
     if (!fuzzy.isEmpty()) {
-      params.add(String.format("fuzzy=%s", fuzzy));
+      params.add(String.format("fuzzy=%s", UrlUtil.urlEncodeString(fuzzy)));
     }
     if (set != null) {
       params.add(String.format("set=%s", set));

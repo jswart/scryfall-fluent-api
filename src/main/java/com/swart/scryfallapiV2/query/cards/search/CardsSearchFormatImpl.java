@@ -2,9 +2,9 @@ package com.swart.scryfallapiV2.query.cards.search;
 
 public class CardsSearchFormatImpl implements CardsSearchFormatInf {
 
-  CardsSearch cardSearch = null;
+  CardsSearchImpl cardSearch = null;
 
-  protected CardsSearchFormatImpl(final CardsSearch cardSearch) {
+  protected CardsSearchFormatImpl(final CardsSearchImpl cardSearch) {
     this.cardSearch = cardSearch;
   }
 

@@ -82,12 +82,8 @@ public class CardsAutoCompleteImpl implements CardsAutoCompleteInf {
       throw new IllegalArgumentException("An autocomplete query must be defined.");
     }
 
-    if (!query.isEmpty()) {
-      query = query.replaceAll(" ", "+");
-    }
-
     final List<String> params = new ArrayList<String>();
-    params.add(String.format("q=%s", this.query));
+    params.add(String.format("q=%s", UrlUtil.urlEncodeString(this.query)));
     params.add(String.format("format=%s", this.format.toString()));
     params.add(String.format("pretty=%s", this.pretty.toString()));
     return params;
@@ -99,12 +95,8 @@ public class CardsAutoCompleteImpl implements CardsAutoCompleteInf {
       throw new IllegalArgumentException("An autocomplete query must be defined.");
     }
 
-    if (!query.isEmpty()) {
-      query = query.replaceAll(" ", "+");
-    }
-
     final List<String> params = new ArrayList<String>();
-    params.add(String.format("q=%s", this.query));
+    params.add(String.format("q=%s", UrlUtil.urlEncodeString(this.query)));
     if (format != CardsAutoCompleteFormatEnum.JSON) {
       params.add(String.format("format=%s", this.format.toString()));
     }

@@ -7,7 +7,7 @@ import java.util.List;
 import com.swart.scryfallapiV2.query.ScryFallApiConstants;
 import com.swart.scryfallapiV2.util.UrlUtil;
 
-public class CardsSearch implements CardsSearchInf {
+public class CardsSearchImpl implements CardsSearchInf {
 
   private final CardsSearchUniqueInf uniqueInst;
   private final CardsSearchOrderInf orderInst;
@@ -25,7 +25,7 @@ public class CardsSearch implements CardsSearchInf {
   private CardsSearchFormatEnum format = CardsSearchFormatEnum.JSON;
   private Boolean pretty = Boolean.FALSE;
 
-  public CardsSearch() {
+  public CardsSearchImpl() {
     uniqueInst = new CardsSearchUniqueImpl(this);
     orderInst = new CardsSearchOrderImpl(this);
     directionInst = new CardsSearchDirectionImpl(this);
