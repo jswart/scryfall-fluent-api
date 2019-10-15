@@ -1,47 +1,30 @@
-package com.swart.scryfallapiV2.query.cards;
+package com.swart.scryfallapiV2.query.cards.autocomplete;
 
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.swart.scryfallapiV2.query.ScryFallApiConstants;
-import com.swart.scryfallapiV2.query.cards.autocomplete.CardsAutoCompleteImpl;
-import com.swart.scryfallapiV2.query.cards.autocomplete.CardsAutoCompleteInf;
-import com.swart.scryfallapiV2.query.cards.named.CardsNamedImpl;
-import com.swart.scryfallapiV2.query.cards.named.CardsNamedInf;
-import com.swart.scryfallapiV2.query.cards.search.CardsSearch;
-import com.swart.scryfallapiV2.query.cards.search.CardsSearchInf;
 import com.swart.scryfallapiV2.util.UrlUtil;
 
-public class CardsImpl implements CardsInf {
+public class CardsAutoCompleteImpl implements CardsAutoCompleteInf {
 
-  public CardsSearchInf search() {
-    return new CardsSearch();
-  }
+  private final CardsAutoCompleteFormatInf formatInst;
 
-  public CardsNamedInf named() {
-    return new CardsNamedImpl();
-  }
-
-  public CardsAutoCompleteInf autocomplete() {
-    return new CardsAutoCompleteImpl();
-  }
-
-  private final CardsFormatInf formatInst;
-
-  private Integer page = 1;
-  private CardsFormatEnum format = CardsFormatEnum.JSON;
+  private String query = "";
+  private CardsAutoCompleteFormatEnum format = CardsAutoCompleteFormatEnum.JSON;
   private Boolean pretty = Boolean.FALSE;
 
-  public CardsImpl() {
-    formatInst = new CardsFormatImpl(this);
+  public CardsAutoCompleteImpl() {
+    formatInst = new CardsAutoCompleteFormatImpl(this);
   }
 
   public URL buildUrl() {
     final List<String> urlOptions = from();
     final String options = UrlUtil.paramJoiner(urlOptions, "&");
     final String question = (options.isEmpty()) ? "" : "?";
-    final String urlStr = String.format("%s/cards%s%s", ScryFallApiConstants.BASE_API_URL, question, options);
+    final String urlStr = String.format("%s/cards/autocomplete%s%s", ScryFallApiConstants.BASE_API_URL, question,
+        options);
     final URL url = UrlUtil.createUrl(urlStr);
     return url;
   }
@@ -50,7 +33,8 @@ public class CardsImpl implements CardsInf {
     final List<String> urlOptions = fromVerbose();
     final String options = UrlUtil.paramJoiner(urlOptions, "&");
     final String question = (options.isEmpty()) ? "" : "?";
-    final String urlStr = String.format("%s/cards%s%s", ScryFallApiConstants.BASE_API_URL, question, options);
+    final String urlStr = String.format("%s/cards/autocomplete%s%s", ScryFallApiConstants.BASE_API_URL, question,
+        options);
     final URL url = UrlUtil.createUrl(urlStr);
     return url;
   }
@@ -59,7 +43,8 @@ public class CardsImpl implements CardsInf {
     final List<String> urlOptions = from();
     final String options = UrlUtil.paramJoiner(urlOptions, "&");
     final String question = (options.isEmpty()) ? "" : "?";
-    final String urlStr = String.format("%s/cards%s%s", ScryFallApiConstants.BASE_API_URL, question, options);
+    final String urlStr = String.format("%s/cards/autocomplete%s%s", ScryFallApiConstants.BASE_API_URL, question,
+        options);
     return urlStr;
   }
 
@@ -67,34 +52,42 @@ public class CardsImpl implements CardsInf {
     final List<String> urlOptions = fromVerbose();
     final String options = UrlUtil.paramJoiner(urlOptions, "&");
     final String question = (options.isEmpty()) ? "" : "?";
-    final String urlStr = String.format("%s/cards%s%s", ScryFallApiConstants.BASE_API_URL, question, options);
+    final String urlStr = String.format("%s/cards/autocomplete%s%s", ScryFallApiConstants.BASE_API_URL, question,
+        options);
     return urlStr;
   }
 
-  /* Client options */
-  public CardsInf withPage(final int pageNumber) {
-    this.page = pageNumber;
+  public CardsAutoCompleteInf withQuery(final String query) {
+    this.query = query;
     return this;
   }
 
-  public CardsInf withPretty() {
+  public CardsAutoCompleteInf withPretty() {
     this.pretty = Boolean.TRUE;
     return this;
   }
 
   /* Option implementation accessors into this class */
-  public void setFormat(final CardsFormatEnum format) {
+  public void setFormat(final CardsAutoCompleteFormatEnum format) {
     this.format = format;
   }
 
-  public CardsFormatInf withFormat() {
+  public CardsAutoCompleteFormatInf withFormat() {
     return formatInst;
   }
 
   private List<String> fromVerbose() {
 
+    if (query.isEmpty()) {
+      throw new IllegalArgumentException("An autocomplete query must be defined.");
+    }
+
+    if (!query.isEmpty()) {
+      query = query.replaceAll(" ", "+");
+    }
+
     final List<String> params = new ArrayList<String>();
-    params.add(String.format("page=%s", this.page));
+    params.add(String.format("q=%s", this.query));
     params.add(String.format("format=%s", this.format.toString()));
     params.add(String.format("pretty=%s", this.pretty.toString()));
     return params;
@@ -102,11 +95,17 @@ public class CardsImpl implements CardsInf {
 
   private List<String> from() {
 
-    final List<String> params = new ArrayList<String>();
-    if (page != 1) {
-      params.add(String.format("page=%s", this.page));
+    if (query.isEmpty()) {
+      throw new IllegalArgumentException("An autocomplete query must be defined.");
     }
-    if (format != CardsFormatEnum.JSON) {
+
+    if (!query.isEmpty()) {
+      query = query.replaceAll(" ", "+");
+    }
+
+    final List<String> params = new ArrayList<String>();
+    params.add(String.format("q=%s", this.query));
+    if (format != CardsAutoCompleteFormatEnum.JSON) {
       params.add(String.format("format=%s", this.format.toString()));
     }
     if (pretty) {

@@ -1,8 +1,9 @@
 package com.swart.scryfallapiV2.query.cards;
 
 import com.swart.scryfallapiV2.query.BuildEndInf;
-import com.swart.scryfallapiV2.query.named.CardsNamedInf;
-import com.swart.scryfallapiV2.query.search.CardsSearchInf;
+import com.swart.scryfallapiV2.query.cards.autocomplete.CardsAutoCompleteInf;
+import com.swart.scryfallapiV2.query.cards.named.CardsNamedInf;
+import com.swart.scryfallapiV2.query.cards.search.CardsSearchInf;
 
 public interface CardsInf extends BuildEndInf {
 
@@ -19,9 +20,9 @@ public interface CardsInf extends BuildEndInf {
   // /cards/named
   CardsNamedInf named();
 
-//  // /cards/autocomplete
-//  QueryCardsInf autocomplete();
-//
+  // /cards/autocomplete
+  CardsAutoCompleteInf autocomplete();
+
 //  // /cards/random
 //  QueryCardsInf random();
 //
