@@ -7,6 +7,9 @@ import java.util.List;
 import com.swart.scryfallapiV2.query.ScryFallApiConstants;
 import com.swart.scryfallapiV2.util.UrlUtil;
 
+/**
+ * @author jake swart
+ */
 public class CardsSearchImpl implements CardsSearchInf {
 
   private final CardsSearchUniqueInf uniqueInst;

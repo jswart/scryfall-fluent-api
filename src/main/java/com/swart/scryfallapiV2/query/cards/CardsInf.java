@@ -2,10 +2,14 @@ package com.swart.scryfallapiV2.query.cards;
 
 import com.swart.scryfallapiV2.query.BuildEndInf;
 import com.swart.scryfallapiV2.query.cards.autocomplete.CardsAutoCompleteInf;
+import com.swart.scryfallapiV2.query.cards.codenumber.CardsCodeNumberInf;
 import com.swart.scryfallapiV2.query.cards.named.CardsNamedInf;
 import com.swart.scryfallapiV2.query.cards.random.CardsRandomInf;
 import com.swart.scryfallapiV2.query.cards.search.CardsSearchInf;
 
+/**
+ * @author jake swart
+ */
 public interface CardsInf extends BuildEndInf {
 
   // /cards
@@ -29,10 +33,10 @@ public interface CardsInf extends BuildEndInf {
 
 //  // /cards/collection
 //  QueryCardsInf collection();
-//
-//  // /cards/:code/:number(/:lang)
-//  QueryCardsInf code();
-//
+
+  // /cards/:code/:number(/:lang)
+  CardsCodeNumberInf codenumber();
+
 //  // /cards/multiverse/:id
 //  QueryCardsInf multiverse();
 //

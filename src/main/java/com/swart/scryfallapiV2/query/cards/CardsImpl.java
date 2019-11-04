@@ -7,6 +7,8 @@ import java.util.List;
 import com.swart.scryfallapiV2.query.ScryFallApiConstants;
 import com.swart.scryfallapiV2.query.cards.autocomplete.CardsAutoCompleteImpl;
 import com.swart.scryfallapiV2.query.cards.autocomplete.CardsAutoCompleteInf;
+import com.swart.scryfallapiV2.query.cards.codenumber.CardsCodeNumberImpl;
+import com.swart.scryfallapiV2.query.cards.codenumber.CardsCodeNumberInf;
 import com.swart.scryfallapiV2.query.cards.named.CardsNamedImpl;
 import com.swart.scryfallapiV2.query.cards.named.CardsNamedInf;
 import com.swart.scryfallapiV2.query.cards.random.CardsRandomImpl;
@@ -15,6 +17,9 @@ import com.swart.scryfallapiV2.query.cards.search.CardsSearchImpl;
 import com.swart.scryfallapiV2.query.cards.search.CardsSearchInf;
 import com.swart.scryfallapiV2.util.UrlUtil;
 
+/**
+ * @author jake swart
+ */
 public class CardsImpl implements CardsInf {
 
   public CardsSearchInf search() {
@@ -31,6 +36,10 @@ public class CardsImpl implements CardsInf {
 
   public CardsRandomInf random() {
     return new CardsRandomImpl();
+  }
+
+  public CardsCodeNumberInf codenumber() {
+    return new CardsCodeNumberImpl();
   }
 
   private final CardsFormatInf formatInst;

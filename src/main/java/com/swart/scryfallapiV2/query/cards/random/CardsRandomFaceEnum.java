@@ -1,9 +1,7 @@
 package com.swart.scryfallapiV2.query.cards.random;
 
 /**
- *
  * @author jake swart
- *
  */
 public enum CardsRandomFaceEnum {
   FRONT, BACK;

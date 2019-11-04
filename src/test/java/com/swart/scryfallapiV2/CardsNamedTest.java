@@ -4,12 +4,16 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
+import com.swart.scryfallapiV2.model.SetDBEnum;
 import com.swart.scryfallapiV2.query.Query;
 
-public class CardNamedTest {
+/**
+ * @author jake swart
+ */
+public class CardsNamedTest {
 
   @Test
-  public void fluentSearch() {
+  public void runtTests() {
 
     String url = "";
 
@@ -36,6 +40,9 @@ public class CardNamedTest {
     assertEquals("https://api.scryfall.com/cards/named?exact=abc123&format=image", url);
     url = Query.cards().named().withExact("abc123").withFormat().text().build();
     assertEquals("https://api.scryfall.com/cards/named?exact=abc123&format=text", url);
+
+    url = Query.cards().named().withExact("abc123").withSet(SetDBEnum.AetherRevolt).build();
+    assertEquals("https://api.scryfall.com/cards/named?exact=abc123&set=aer", url);
 
     // default
     url = Query.cards().named().withExact("abc123").withFace().front().build();

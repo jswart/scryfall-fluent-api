@@ -1,5 +1,8 @@
 package com.swart.scryfallapiV2.query.cards.autocomplete;
 
+/**
+ * @author jake swart
+ */
 public class CardsAutoCompleteFormatImpl implements CardsAutoCompleteFormatInf {
 
   CardsAutoCompleteImpl card = null;

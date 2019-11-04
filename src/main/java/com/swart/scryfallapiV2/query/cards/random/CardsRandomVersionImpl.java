@@ -1,5 +1,8 @@
 package com.swart.scryfallapiV2.query.cards.random;
 
+/**
+ * @author jake swart
+ */
 public class CardsRandomVersionImpl implements CardsRandomVersionInf {
 
   CardsRandomImpl cardsRandom = null;

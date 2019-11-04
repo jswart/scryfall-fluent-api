@@ -2,6 +2,9 @@ package com.swart.scryfallapiV2.query.cards.search;
 
 import com.swart.scryfallapiV2.query.BuildEndInf;
 
+/**
+ * @author jake swart
+ */
 public interface CardsSearchInf extends BuildEndInf {
 
   CardsSearchInf withQuery(String query);

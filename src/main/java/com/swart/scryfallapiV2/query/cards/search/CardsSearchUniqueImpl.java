@@ -1,5 +1,8 @@
 package com.swart.scryfallapiV2.query.cards.search;
 
+/**
+ * @author jake swart
+ */
 public class CardsSearchUniqueImpl implements CardsSearchUniqueInf {
 
   CardsSearchImpl cardSearch = null;

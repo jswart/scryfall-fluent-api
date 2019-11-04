@@ -4,19 +4,22 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.swart.scryfallapiV2.model.SetDBEnum;
 import com.swart.scryfallapiV2.query.ScryFallApiConstants;
 import com.swart.scryfallapiV2.util.UrlUtil;
 
+/**
+ * @author jake swart
+ */
 public class CardsNamedImpl implements CardsNamedInf {
 
   private final CardsNamedFormatInf formatInst;
-  private final CardsNamedSetInf namedSetInst;
   private final CardsNamedFaceInf faceInst;
   private final CardsNamedVersionInf versionInst;
 
   private String exact = "";
   private String fuzzy = "";
-  private CardsNamedSetEnum set = null;
+  private SetDBEnum set = null;
   private CardsNamedFormatEnum format = CardsNamedFormatEnum.JSON;
   private CardsNamedFaceEnum face = CardsNamedFaceEnum.FRONT;
   private CardsNamedVersionEnum version = CardsNamedVersionEnum.LARGE;
@@ -24,7 +27,6 @@ public class CardsNamedImpl implements CardsNamedInf {
 
   public CardsNamedImpl() {
     formatInst = new CardsNamedFormatImpl(this);
-    namedSetInst = new CardsNamedSetImpl(this);
     faceInst = new CardsNamedFaceImpl(this);
     versionInst = new CardsNamedVersionImpl(this);
   }
@@ -74,8 +76,9 @@ public class CardsNamedImpl implements CardsNamedInf {
     return this;
   }
 
-  public CardsNamedSetInf withSet() {
-    return namedSetInst;
+  public CardsNamedInf withSet(final SetDBEnum set) {
+    this.set = set;
+    return this;
   }
 
   public CardsNamedFormatInf withFormat() {
@@ -95,7 +98,7 @@ public class CardsNamedImpl implements CardsNamedInf {
     return this;
   }
 
-  public void setSet(final CardsNamedSetEnum set) {
+  public void setSet(final SetDBEnum set) {
     this.set = set;
   }
 

@@ -6,10 +6,13 @@ import org.junit.Test;
 
 import com.swart.scryfallapiV2.query.Query;
 
-public class CardSearchTest {
+/**
+ * @author jake swart
+ */
+public class CardsSearchTest {
 
   @Test
-  public void fluentSearch() {
+  public void runtTests() {
 
     // no options
     String url = Query.cards().search().build();

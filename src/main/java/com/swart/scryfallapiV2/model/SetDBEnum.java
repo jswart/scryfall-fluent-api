@@ -1,11 +1,11 @@
-package com.swart.scryfallapiV2.query.cards.named;
+package com.swart.scryfallapiV2.model;
 
 /**
  *
  * @author jake swart
  *
  */
-public enum CardsNamedSetEnum {
+public enum SetDBEnum {
   Commander2019("c19"), SanDiegoComicCon2019("ps19"), CoreSet2020Promos("pm20"), CoreSet2020Tokens("tm20"),
   M20PromoPacks("ppp1"), CoreSet2020("m20"), SignatureSpellbookGideon("ss2"), ModernHorizonsPromos("pmh1"),
   ModernHorizons("mh1"), ModernHorizonsTokens("tmh1"), WaroftheSparkTokens("twar"), WaroftheSpark("war"),
@@ -152,7 +152,7 @@ public enum CardsNamedSetEnum {
 
   private String set = "";
 
-  CardsNamedSetEnum(final String set) {
+  SetDBEnum(final String set) {
     this.set = set;
   }
 

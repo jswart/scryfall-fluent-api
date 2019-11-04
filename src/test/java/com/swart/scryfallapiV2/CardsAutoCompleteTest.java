@@ -6,10 +6,13 @@ import org.junit.Test;
 
 import com.swart.scryfallapiV2.query.Query;
 
-public class CardAutoCompleteTest {
+/**
+ * @author jake swart
+ */
+public class CardsAutoCompleteTest {
 
   @Test
-  public void fluentSearch() {
+  public void runtTests() {
 
     String url = "";
 
@@ -37,34 +40,5 @@ public class CardAutoCompleteTest {
     assertEquals("https://api.scryfall.com/cards/autocomplete?q=abc123&format=json&pretty=false", url);
 
   }
-
-//  private List<String> from() {
-//
-//    final List<String> params = new ArrayList<String>();
-//
-//    if (!exact.isEmpty()) {
-//      params.add(String.format("q=%s", exact));
-//    }
-//    if (!fuzzy.isEmpty()) {
-//      params.add(String.format("fuzzy=%s", fuzzy));
-//    }
-//    if (set != null) {
-//      params.add(String.format("set=%s", set));
-//    }
-//    if (format != CardsNamedFormatEnum.JSON) {
-//      params.add(String.format("format=%s", format));
-//    }
-//    if (face != CardsNamedFaceEnum.FRONT) {
-//      params.add(String.format("face=%s", face));
-//    }
-//    if (version != CardsNamedVersionEnum.LARGE) {
-//      params.add(String.format("version=%s", version));
-//    }
-//    if (pretty) {
-//      params.add(String.format("pretty=%s", this.pretty.toString()));
-//    }
-//
-//    return params;
-//  }
 
 }

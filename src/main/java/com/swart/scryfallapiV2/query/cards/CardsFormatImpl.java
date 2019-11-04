@@ -1,5 +1,8 @@
 package com.swart.scryfallapiV2.query.cards;
 
+/**
+ * @author jake swart
+ */
 public class CardsFormatImpl implements CardsFormatInf {
 
   CardsImpl card = null;
