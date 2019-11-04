@@ -9,6 +9,8 @@ import com.swart.scryfallapiV2.query.cards.autocomplete.CardsAutoCompleteImpl;
 import com.swart.scryfallapiV2.query.cards.autocomplete.CardsAutoCompleteInf;
 import com.swart.scryfallapiV2.query.cards.codenumber.CardsCodeNumberImpl;
 import com.swart.scryfallapiV2.query.cards.codenumber.CardsCodeNumberInf;
+import com.swart.scryfallapiV2.query.cards.collection.CardsCollectionImpl;
+import com.swart.scryfallapiV2.query.cards.collection.CardsCollectionInf;
 import com.swart.scryfallapiV2.query.cards.named.CardsNamedImpl;
 import com.swart.scryfallapiV2.query.cards.named.CardsNamedInf;
 import com.swart.scryfallapiV2.query.cards.random.CardsRandomImpl;
@@ -36,6 +38,10 @@ public class CardsImpl implements CardsInf {
 
   public CardsRandomInf random() {
     return new CardsRandomImpl();
+  }
+
+  public CardsCollectionInf collection() {
+    return new CardsCollectionImpl();
   }
 
   public CardsCodeNumberInf codenumber() {

@@ -1,6 +1,6 @@
 package com.swart.scryfallapiV2.model;
 
-public class CardIdentifier {
+public class ScryFallCardIdentifier {
 
   private String id;
   private Integer mtgo_id;
