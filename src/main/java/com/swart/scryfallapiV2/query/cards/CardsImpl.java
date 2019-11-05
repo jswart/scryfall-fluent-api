@@ -5,18 +5,28 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.swart.scryfallapiV2.query.ScryFallApiConstants;
+import com.swart.scryfallapiV2.query.cards.arenaid.CardsArenaIdImpl;
+import com.swart.scryfallapiV2.query.cards.arenaid.CardsArenaIdInf;
 import com.swart.scryfallapiV2.query.cards.autocomplete.CardsAutoCompleteImpl;
 import com.swart.scryfallapiV2.query.cards.autocomplete.CardsAutoCompleteInf;
 import com.swart.scryfallapiV2.query.cards.codenumber.CardsCodeNumberImpl;
 import com.swart.scryfallapiV2.query.cards.codenumber.CardsCodeNumberInf;
 import com.swart.scryfallapiV2.query.cards.collection.CardsCollectionImpl;
 import com.swart.scryfallapiV2.query.cards.collection.CardsCollectionInf;
+import com.swart.scryfallapiV2.query.cards.id.CardsIdImpl;
+import com.swart.scryfallapiV2.query.cards.id.CardsIdInf;
+import com.swart.scryfallapiV2.query.cards.mtgoid.CardsMtgoIdImpl;
+import com.swart.scryfallapiV2.query.cards.mtgoid.CardsMtgoIdInf;
+import com.swart.scryfallapiV2.query.cards.multiverseid.CardsMultiverseIdImpl;
+import com.swart.scryfallapiV2.query.cards.multiverseid.CardsMultiverseIdInf;
 import com.swart.scryfallapiV2.query.cards.named.CardsNamedImpl;
 import com.swart.scryfallapiV2.query.cards.named.CardsNamedInf;
 import com.swart.scryfallapiV2.query.cards.random.CardsRandomImpl;
 import com.swart.scryfallapiV2.query.cards.random.CardsRandomInf;
 import com.swart.scryfallapiV2.query.cards.search.CardsSearchImpl;
 import com.swart.scryfallapiV2.query.cards.search.CardsSearchInf;
+import com.swart.scryfallapiV2.query.cards.tcgplayerid.CardsTcgplayerIdImpl;
+import com.swart.scryfallapiV2.query.cards.tcgplayerid.CardsTcgplayerIdInf;
 import com.swart.scryfallapiV2.util.UrlUtil;
 
 /**
@@ -44,8 +54,28 @@ public class CardsImpl implements CardsInf {
     return new CardsCollectionImpl();
   }
 
-  public CardsCodeNumberInf codenumber() {
+  public CardsCodeNumberInf codeNumberLang() {
     return new CardsCodeNumberImpl();
+  }
+
+  public CardsMultiverseIdInf multiverseId() {
+    return new CardsMultiverseIdImpl();
+  }
+
+  public CardsMtgoIdInf mtgoId() {
+    return new CardsMtgoIdImpl();
+  }
+
+  public CardsArenaIdInf arenaId() {
+    return new CardsArenaIdImpl();
+  }
+
+  public CardsTcgplayerIdInf tcgplayerId() {
+    return new CardsTcgplayerIdImpl();
+  }
+
+  public CardsIdInf id() {
+    return new CardsIdImpl();
   }
 
   private final CardsFormatInf formatInst;

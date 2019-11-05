@@ -1,0 +1,13 @@
+package com.swart.scryfallapiV2.query.cards.id;
+
+/**
+ * @author jake swart
+ */
+public enum CardsIdVersionEnum {
+  SMALL, NORMAL, LARGE, PNG, ART_CROP, BORDER_CROP;
+
+  @Override
+  public String toString() {
+    return this.name().toLowerCase();
+  }
+}
