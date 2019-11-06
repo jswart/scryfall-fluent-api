@@ -62,6 +62,10 @@ public class CardsIdTest {
     url = Query.cards().id().withId("abc-123").withPretty().build();
     assertEquals("https://api.scryfall.com/cards/abc-123?pretty=true", url);
 
+    // non-default
+    url = Query.cards().id().withId("abc-123").withRulings().build();
+    assertEquals("https://api.scryfall.com/cards/abc-123/rulings", url);
+
   }
 
 }

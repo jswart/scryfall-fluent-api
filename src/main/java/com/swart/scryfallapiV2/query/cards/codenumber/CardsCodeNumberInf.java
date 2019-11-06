@@ -8,6 +8,8 @@ import com.swart.scryfallapiV2.query.BuildEndInf;
  */
 public interface CardsCodeNumberInf extends BuildEndInf {
 
+  CardsCodeNumberInf withRulings();
+
   CardsCodeNumberInf withSet(SetDBEnum set);
 
   CardsCodeNumberInf withCollectorNumber(int collectorNumber);

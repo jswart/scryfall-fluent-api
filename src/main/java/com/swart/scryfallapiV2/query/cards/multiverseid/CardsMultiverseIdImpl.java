@@ -21,6 +21,7 @@ public class CardsMultiverseIdImpl implements CardsMultiverseIdInf {
   private CardsMultiverseIdFaceEnum face = CardsMultiverseIdFaceEnum.FRONT;
   private CardsMultiverseIdVersionEnum version = CardsMultiverseIdVersionEnum.LARGE;
   private Boolean pretty = Boolean.FALSE;
+  private Boolean rulings = Boolean.FALSE;
 
   public CardsMultiverseIdImpl() {
     formatInst = new CardsMultiverseIdFormatImpl(this);
@@ -31,8 +32,9 @@ public class CardsMultiverseIdImpl implements CardsMultiverseIdInf {
   private String formatEndpointUrlAsString(final List<String> urlOptions) {
     final String options = UrlUtil.paramJoiner(urlOptions, "&");
     final String question = (options.isEmpty()) ? "" : "?";
-    final String urlStr = String.format("%s/cards/multiverse/%s%s%s", ScryFallApiConstants.BASE_API_URL, id, question,
-        options);
+    final String rulingsPath = (rulings) ? "/rulings" : "";
+    final String urlStr = String.format("%s/cards/multiverse/%s%s%s%s", ScryFallApiConstants.BASE_API_URL, id,
+        rulingsPath, question, options);
     return urlStr;
   }
 
@@ -61,6 +63,11 @@ public class CardsMultiverseIdImpl implements CardsMultiverseIdInf {
   }
 
   /* Client options */
+  public CardsMultiverseIdInf withRulings() {
+    this.rulings = Boolean.TRUE;
+    return this;
+  }
+
   public CardsMultiverseIdFormatInf withFormat() {
     return formatInst;
   }

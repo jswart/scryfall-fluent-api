@@ -44,20 +44,24 @@ public class CardsCodeNumberTest {
     assertEquals("https://api.scryfall.com/cards/aer/5/en", url);
 
     // default
-    url = Query.cards().codeNumberLang().withSet(SetDBEnum.AetherRevolt).withCollectorNumber(5).withFormat().json().build();
+    url = Query.cards().codeNumberLang().withSet(SetDBEnum.AetherRevolt).withCollectorNumber(5).withFormat().json()
+        .build();
     assertEquals("https://api.scryfall.com/cards/aer/5/en", url);
     // non-default
     url = Query.cards().codeNumberLang().withSet(SetDBEnum.AetherRevolt).withCollectorNumber(5).withFormat().image()
         .build();
     assertEquals("https://api.scryfall.com/cards/aer/5/en?format=image", url);
-    url = Query.cards().codeNumberLang().withSet(SetDBEnum.AetherRevolt).withCollectorNumber(5).withFormat().text().build();
+    url = Query.cards().codeNumberLang().withSet(SetDBEnum.AetherRevolt).withCollectorNumber(5).withFormat().text()
+        .build();
     assertEquals("https://api.scryfall.com/cards/aer/5/en?format=text", url);
 
     // default
-    url = Query.cards().codeNumberLang().withSet(SetDBEnum.AetherRevolt).withCollectorNumber(5).withFace().front().build();
+    url = Query.cards().codeNumberLang().withSet(SetDBEnum.AetherRevolt).withCollectorNumber(5).withFace().front()
+        .build();
     assertEquals("https://api.scryfall.com/cards/aer/5/en", url);
     // non-default
-    url = Query.cards().codeNumberLang().withSet(SetDBEnum.AetherRevolt).withCollectorNumber(5).withFace().back().build();
+    url = Query.cards().codeNumberLang().withSet(SetDBEnum.AetherRevolt).withCollectorNumber(5).withFace().back()
+        .build();
     assertEquals("https://api.scryfall.com/cards/aer/5/en?face=back", url);
 
     // default
@@ -74,15 +78,20 @@ public class CardsCodeNumberTest {
     url = Query.cards().codeNumberLang().withSet(SetDBEnum.AetherRevolt).withCollectorNumber(5).withVersion().artCrop()
         .build();
     assertEquals("https://api.scryfall.com/cards/aer/5/en?version=art_crop", url);
-    url = Query.cards().codeNumberLang().withSet(SetDBEnum.AetherRevolt).withCollectorNumber(5).withVersion().borderCrop()
-        .build();
+    url = Query.cards().codeNumberLang().withSet(SetDBEnum.AetherRevolt).withCollectorNumber(5).withVersion()
+        .borderCrop().build();
     assertEquals("https://api.scryfall.com/cards/aer/5/en?version=border_crop", url);
-    url = Query.cards().codeNumberLang().withSet(SetDBEnum.AetherRevolt).withCollectorNumber(5).withVersion().png().build();
+    url = Query.cards().codeNumberLang().withSet(SetDBEnum.AetherRevolt).withCollectorNumber(5).withVersion().png()
+        .build();
     assertEquals("https://api.scryfall.com/cards/aer/5/en?version=png", url);
 
     // non-default
     url = Query.cards().codeNumberLang().withSet(SetDBEnum.AetherRevolt).withCollectorNumber(5).withPretty().build();
     assertEquals("https://api.scryfall.com/cards/aer/5/en?pretty=true", url);
+
+    // non-default
+    url = Query.cards().codeNumberLang().withSet(SetDBEnum.AetherRevolt).withCollectorNumber(5).withRulings().build();
+    assertEquals("https://api.scryfall.com/cards/aer/5/rulings", url);
 
   }
 

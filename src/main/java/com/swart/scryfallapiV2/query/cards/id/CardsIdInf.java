@@ -7,6 +7,8 @@ import com.swart.scryfallapiV2.query.BuildEndInf;
  */
 public interface CardsIdInf extends BuildEndInf {
 
+  CardsIdInf withRulings();
+
   CardsIdInf withId(String uuid);
 
   CardsIdFormatInf withFormat();

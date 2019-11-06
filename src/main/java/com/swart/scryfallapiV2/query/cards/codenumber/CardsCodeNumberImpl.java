@@ -25,6 +25,7 @@ public class CardsCodeNumberImpl implements CardsCodeNumberInf {
   private CardsCodeNumberFaceEnum face = CardsCodeNumberFaceEnum.FRONT;
   private CardsCodeNumberVersionEnum version = CardsCodeNumberVersionEnum.LARGE;
   private Boolean pretty = Boolean.FALSE;
+  private Boolean rulings = Boolean.FALSE;
 
   public CardsCodeNumberImpl() {
     languageInst = new CardsCodeNumberLanguageImpl(this);
@@ -36,8 +37,10 @@ public class CardsCodeNumberImpl implements CardsCodeNumberInf {
   private String formatEndpointUrlAsString(final List<String> urlOptions) {
     final String options = UrlUtil.paramJoiner(urlOptions, "&");
     final String question = (options.isEmpty()) ? "" : "?";
-    final String urlStr = String.format("%s/cards/%s/%s/%s%s%s", ScryFallApiConstants.BASE_API_URL, set.toString(),
-        collectorNumber, language, question, options);
+    final String rulingsPath = (rulings) ? "/rulings" : "";
+    final String languagesPath = (rulings) ? "" : "/" + language.toString();
+    final String urlStr = String.format("%s/cards/%s/%s%s%s%s%s", ScryFallApiConstants.BASE_API_URL, set.toString(),
+        collectorNumber, languagesPath, rulingsPath, question, options);
     return urlStr;
   }
 
@@ -66,6 +69,11 @@ public class CardsCodeNumberImpl implements CardsCodeNumberInf {
   }
 
   /* Client options */
+  public CardsCodeNumberInf withRulings() {
+    this.rulings = Boolean.TRUE;
+    return this;
+  }
+
   public CardsCodeNumberInf withSet(final SetDBEnum set) {
     this.set = set;
     return this;

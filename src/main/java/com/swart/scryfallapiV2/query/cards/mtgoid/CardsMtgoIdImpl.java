@@ -21,6 +21,7 @@ public class CardsMtgoIdImpl implements CardsMtgoIdInf {
   private CardsMtgoIdFaceEnum face = CardsMtgoIdFaceEnum.FRONT;
   private CardsMtgoIdVersionEnum version = CardsMtgoIdVersionEnum.LARGE;
   private Boolean pretty = Boolean.FALSE;
+  private Boolean rulings = Boolean.FALSE;
 
   public CardsMtgoIdImpl() {
     formatInst = new CardsMtgoIdFormatImpl(this);
@@ -31,8 +32,9 @@ public class CardsMtgoIdImpl implements CardsMtgoIdInf {
   private String formatEndpointUrlAsString(final List<String> urlOptions) {
     final String options = UrlUtil.paramJoiner(urlOptions, "&");
     final String question = (options.isEmpty()) ? "" : "?";
-    final String urlStr = String.format("%s/cards/mtgo/%s%s%s", ScryFallApiConstants.BASE_API_URL, id, question,
-        options);
+    final String rulingsPath = (rulings) ? "/rulings" : "";
+    final String urlStr = String.format("%s/cards/mtgo/%s%s%s%s", ScryFallApiConstants.BASE_API_URL, id, rulingsPath,
+        question, options);
     return urlStr;
   }
 
@@ -61,6 +63,11 @@ public class CardsMtgoIdImpl implements CardsMtgoIdInf {
   }
 
   /* Client options */
+  public CardsMtgoIdInf withRulings() {
+    this.rulings = Boolean.TRUE;
+    return this;
+  }
+
   public CardsMtgoIdFormatInf withFormat() {
     return formatInst;
   }

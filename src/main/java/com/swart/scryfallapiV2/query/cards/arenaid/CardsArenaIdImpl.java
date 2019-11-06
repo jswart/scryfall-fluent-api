@@ -21,6 +21,7 @@ public class CardsArenaIdImpl implements CardsArenaIdInf {
   private CardsArenaIdFaceEnum face = CardsArenaIdFaceEnum.FRONT;
   private CardsArenaIdVersionEnum version = CardsArenaIdVersionEnum.LARGE;
   private Boolean pretty = Boolean.FALSE;
+  private Boolean rulings = Boolean.FALSE;
 
   public CardsArenaIdImpl() {
     formatInst = new CardsArenaIdFormatImpl(this);
@@ -31,8 +32,9 @@ public class CardsArenaIdImpl implements CardsArenaIdInf {
   private String formatEndpointUrlAsString(final List<String> urlOptions) {
     final String options = UrlUtil.paramJoiner(urlOptions, "&");
     final String question = (options.isEmpty()) ? "" : "?";
-    final String urlStr = String.format("%s/cards/arena/%s%s%s", ScryFallApiConstants.BASE_API_URL, id, question,
-        options);
+    final String rulingsPath = (rulings) ? "/rulings" : "";
+    final String urlStr = String.format("%s/cards/arena/%s%s%s%s", ScryFallApiConstants.BASE_API_URL, id, rulingsPath,
+        question, options);
     return urlStr;
   }
 
@@ -61,6 +63,11 @@ public class CardsArenaIdImpl implements CardsArenaIdInf {
   }
 
   /* Client options */
+  public CardsArenaIdInf withRulings() {
+    this.rulings = Boolean.TRUE;
+    return this;
+  }
+
   public CardsArenaIdFormatInf withFormat() {
     return formatInst;
   }

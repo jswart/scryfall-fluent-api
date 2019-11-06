@@ -9,7 +9,7 @@ import com.swart.scryfallapiV2.query.Query;
 /**
  * @author jake swart
  */
-public class SetsTcgPlayerTest {
+public class SetsTcgPlayerIdTest {
 
   @Test
   public void runtTests() {

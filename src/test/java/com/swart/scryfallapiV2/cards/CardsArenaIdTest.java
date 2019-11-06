@@ -69,6 +69,10 @@ public class CardsArenaIdTest {
     url = Query.cards().arenaId().withId(4).withPretty().build();
     assertEquals("https://api.scryfall.com/cards/arena/4?pretty=true", url);
 
+    // non-default
+    url = Query.cards().arenaId().withId(4).withRulings().build();
+    assertEquals("https://api.scryfall.com/cards/arena/4/rulings", url);
+
   }
 
 }

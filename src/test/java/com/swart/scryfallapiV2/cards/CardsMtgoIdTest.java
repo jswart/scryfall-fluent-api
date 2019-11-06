@@ -9,7 +9,7 @@ import com.swart.scryfallapiV2.query.Query;
 /**
  * @author jake swart
  */
-public class CardsMtgoTest {
+public class CardsMtgoIdTest {
 
   @Test
   public void runtTests() {
@@ -68,6 +68,10 @@ public class CardsMtgoTest {
     // non-default
     url = Query.cards().mtgoId().withId(4).withPretty().build();
     assertEquals("https://api.scryfall.com/cards/mtgo/4?pretty=true", url);
+
+    // non-default
+    url = Query.cards().mtgoId().withId(4).withRulings().build();
+    assertEquals("https://api.scryfall.com/cards/mtgo/4/rulings", url);
 
   }
 

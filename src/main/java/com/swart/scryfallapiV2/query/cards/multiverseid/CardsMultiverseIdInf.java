@@ -7,6 +7,8 @@ import com.swart.scryfallapiV2.query.BuildEndInf;
  */
 public interface CardsMultiverseIdInf extends BuildEndInf {
 
+  CardsMultiverseIdInf withRulings();
+
   CardsMultiverseIdInf withId(int id);
 
   CardsMultiverseIdFormatInf withFormat();
