@@ -1,2 +1,2 @@
-# scryfallapiV2
-ScryFall API Bindings in Fluent Java
+# scryfall-fluent-api
+Fluent ScryFall API Bindings in Java
