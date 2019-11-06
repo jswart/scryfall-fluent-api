@@ -1,4 +1,4 @@
-package com.swart.scryfallapiV2;
+package com.swart.scryfallapiV2.cards;
 
 import static org.junit.Assert.assertEquals;
 
