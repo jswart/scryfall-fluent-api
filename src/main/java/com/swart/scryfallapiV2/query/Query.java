@@ -2,6 +2,8 @@ package com.swart.scryfallapiV2.query;
 
 import com.swart.scryfallapiV2.query.cards.CardsImpl;
 import com.swart.scryfallapiV2.query.cards.CardsInf;
+import com.swart.scryfallapiV2.query.catalogs.CatalogImpl;
+import com.swart.scryfallapiV2.query.catalogs.CatalogInf;
 import com.swart.scryfallapiV2.query.sets.SetsImpl;
 import com.swart.scryfallapiV2.query.sets.SetsInf;
 import com.swart.scryfallapiV2.query.symbology.SymbologyImpl;
@@ -19,6 +21,10 @@ public class Query {
 
   public static SymbologyInf symbology() {
     return new SymbologyImpl();
+  }
+
+  public static CatalogInf catalog() {
+    return new CatalogImpl();
   }
 
 }
