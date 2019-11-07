@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import io.github.jswart.scryfallfluentapi.query.Query;
+import io.github.jswart.scryfallfluentapi.query.ScryfallQuery;
 
 /**
  * @author jake swart
@@ -15,19 +15,19 @@ public class SymbologyTest {
   public void runtTests() {
 
     // no options
-    String url = Query.symbology().build();
+    String url = ScryfallQuery.symbology().build();
     assertEquals("https://api.scryfall.com/symbology", url);
 
     // default
-    url = Query.symbology().withFormat().json().build();
+    url = ScryfallQuery.symbology().withFormat().json().build();
     assertEquals("https://api.scryfall.com/symbology", url);
 
     // non-default
-    url = Query.symbology().withPretty().build();
+    url = ScryfallQuery.symbology().withPretty().build();
     assertEquals("https://api.scryfall.com/symbology?pretty=true", url);
 
     // verbose
-    url = Query.symbology().buildVerbose();
+    url = ScryfallQuery.symbology().buildVerbose();
     assertEquals("https://api.scryfall.com/symbology?format=json&pretty=false", url);
 
   }

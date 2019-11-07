@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import io.github.jswart.scryfallfluentapi.query.Query;
+import io.github.jswart.scryfallfluentapi.query.ScryfallQuery;
 
 /**
  * @author jake swart
@@ -15,19 +15,19 @@ public class CatalogLandTypesTest {
   public void runtTests() {
 
     // no options
-    String url = Query.catalog().landtypes().build();
+    String url = ScryfallQuery.catalog().landtypes().build();
     assertEquals("https://api.scryfall.com/catalog/land-types", url);
 
     // default
-    url = Query.catalog().landtypes().withFormat().json().build();
+    url = ScryfallQuery.catalog().landtypes().withFormat().json().build();
     assertEquals("https://api.scryfall.com/catalog/land-types", url);
 
     // non-default
-    url = Query.catalog().landtypes().withPretty().build();
+    url = ScryfallQuery.catalog().landtypes().withPretty().build();
     assertEquals("https://api.scryfall.com/catalog/land-types?pretty=true", url);
 
     // verbose
-    url = Query.catalog().landtypes().buildVerbose();
+    url = ScryfallQuery.catalog().landtypes().buildVerbose();
     assertEquals("https://api.scryfall.com/catalog/land-types?format=json&pretty=false", url);
 
   }

@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import io.github.jswart.scryfallfluentapi.query.Query;
+import io.github.jswart.scryfallfluentapi.query.ScryfallQuery;
 
 /**
  * @author jake swart
@@ -15,26 +15,26 @@ public class CardsTest {
   public void runtTests() {
 
     // no options
-    String url = Query.cards().build();
+    String url = ScryfallQuery.cards().build();
     assertEquals("https://api.scryfall.com/cards", url);
 
     // default
-    url = Query.cards().withPage(1).build();
+    url = ScryfallQuery.cards().withPage(1).build();
     assertEquals("https://api.scryfall.com/cards", url);
     // non-default
-    url = Query.cards().withPage(2).build();
+    url = ScryfallQuery.cards().withPage(2).build();
     assertEquals("https://api.scryfall.com/cards?page=2", url);
 
     // default
-    url = Query.cards().withFormat().json().build();
+    url = ScryfallQuery.cards().withFormat().json().build();
     assertEquals("https://api.scryfall.com/cards", url);
 
     // non-default
-    url = Query.cards().withPretty().build();
+    url = ScryfallQuery.cards().withPretty().build();
     assertEquals("https://api.scryfall.com/cards?pretty=true", url);
 
     // verbose
-    url = Query.cards().buildVerbose();
+    url = ScryfallQuery.cards().buildVerbose();
     assertEquals("https://api.scryfall.com/cards?page=1&format=json&pretty=false", url);
 
   }

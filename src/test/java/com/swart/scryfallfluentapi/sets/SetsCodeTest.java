@@ -5,7 +5,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 import io.github.jswart.scryfallfluentapi.model.SetDBEnum;
-import io.github.jswart.scryfallfluentapi.query.Query;
+import io.github.jswart.scryfallfluentapi.query.ScryfallQuery;
 
 /**
  * @author jake swart
@@ -19,21 +19,21 @@ public class SetsCodeTest {
 
     // no options
     try {
-      url = Query.sets().code().build();
+      url = ScryfallQuery.sets().code().build();
       assert (false); // set must be defined
     } catch (final Exception e) {
     }
 
     // minimum required options
-    url = Query.sets().code().withSet(SetDBEnum.AetherRevolt).build();
+    url = ScryfallQuery.sets().code().withSet(SetDBEnum.AetherRevolt).build();
     assertEquals("https://api.scryfall.com/sets/aer", url);
 
     // default
-    url = Query.sets().code().withSet(SetDBEnum.AetherRevolt).withFormat().json().build();
+    url = ScryfallQuery.sets().code().withSet(SetDBEnum.AetherRevolt).withFormat().json().build();
     assertEquals("https://api.scryfall.com/sets/aer", url);
 
     // non-default
-    url = Query.sets().code().withSet(SetDBEnum.AetherRevolt).withPretty().build();
+    url = ScryfallQuery.sets().code().withSet(SetDBEnum.AetherRevolt).withPretty().build();
     assertEquals("https://api.scryfall.com/sets/aer?pretty=true", url);
 
   }

@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import io.github.jswart.scryfallfluentapi.query.Query;
+import io.github.jswart.scryfallfluentapi.query.ScryfallQuery;
 
 /**
  * @author jake swart
@@ -18,21 +18,21 @@ public class SetsIdTest {
 
     // no options
     try {
-      url = Query.sets().id().build();
+      url = ScryfallQuery.sets().id().build();
       assert (false); // id must be defined
     } catch (final Exception e) {
     }
 
     // minimum required options
-    url = Query.sets().id().withId("abc-123").build();
+    url = ScryfallQuery.sets().id().withId("abc-123").build();
     assertEquals("https://api.scryfall.com/sets/abc-123", url);
 
     // default
-    url = Query.sets().id().withId("abc-123").withFormat().json().build();
+    url = ScryfallQuery.sets().id().withId("abc-123").withFormat().json().build();
     assertEquals("https://api.scryfall.com/sets/abc-123", url);
 
     // non-default
-    url = Query.sets().id().withId("abc-123").withPretty().build();
+    url = ScryfallQuery.sets().id().withId("abc-123").withPretty().build();
     assertEquals("https://api.scryfall.com/sets/abc-123?pretty=true", url);
 
   }

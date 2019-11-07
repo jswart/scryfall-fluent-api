@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import io.github.jswart.scryfallfluentapi.query.Query;
+import io.github.jswart.scryfallfluentapi.query.ScryfallQuery;
 
 /**
  * @author jake swart
@@ -18,55 +18,55 @@ public class CardsTcgPlayerTest {
 
     // no options
     try {
-      url = Query.cards().tcgplayerId().build();
+      url = ScryfallQuery.cards().tcgplayerId().build();
       assert (false); // set must be defined
     } catch (final Exception e) {
     }
 
     // bad options
     try {
-      url = Query.cards().tcgplayerId().withId(0).build();
+      url = ScryfallQuery.cards().tcgplayerId().withId(0).build();
       assert (false); // id must be great than 1
     } catch (final Exception e) {
     }
 
     // minimum required options
-    url = Query.cards().tcgplayerId().withId(4).build();
+    url = ScryfallQuery.cards().tcgplayerId().withId(4).build();
     assertEquals("https://api.scryfall.com/cards/tcgplayer/4", url);
 
     // default
-    url = Query.cards().tcgplayerId().withId(4).withFormat().json().build();
+    url = ScryfallQuery.cards().tcgplayerId().withId(4).withFormat().json().build();
     assertEquals("https://api.scryfall.com/cards/tcgplayer/4", url);
     // non-default
-    url = Query.cards().tcgplayerId().withId(4).withFormat().image().build();
+    url = ScryfallQuery.cards().tcgplayerId().withId(4).withFormat().image().build();
     assertEquals("https://api.scryfall.com/cards/tcgplayer/4?format=image", url);
-    url = Query.cards().tcgplayerId().withId(4).withFormat().text().build();
+    url = ScryfallQuery.cards().tcgplayerId().withId(4).withFormat().text().build();
     assertEquals("https://api.scryfall.com/cards/tcgplayer/4?format=text", url);
 
     // default
-    url = Query.cards().tcgplayerId().withId(4).withFace().front().build();
+    url = ScryfallQuery.cards().tcgplayerId().withId(4).withFace().front().build();
     assertEquals("https://api.scryfall.com/cards/tcgplayer/4", url);
     // non-default
-    url = Query.cards().tcgplayerId().withId(4).withFace().back().build();
+    url = ScryfallQuery.cards().tcgplayerId().withId(4).withFace().back().build();
     assertEquals("https://api.scryfall.com/cards/tcgplayer/4?face=back", url);
 
     // default
-    url = Query.cards().tcgplayerId().withId(4).withVersion().large().build();
+    url = ScryfallQuery.cards().tcgplayerId().withId(4).withVersion().large().build();
     assertEquals("https://api.scryfall.com/cards/tcgplayer/4", url);
     // non-default
-    url = Query.cards().tcgplayerId().withId(4).withVersion().small().build();
+    url = ScryfallQuery.cards().tcgplayerId().withId(4).withVersion().small().build();
     assertEquals("https://api.scryfall.com/cards/tcgplayer/4?version=small", url);
-    url = Query.cards().tcgplayerId().withId(4).withVersion().normal().build();
+    url = ScryfallQuery.cards().tcgplayerId().withId(4).withVersion().normal().build();
     assertEquals("https://api.scryfall.com/cards/tcgplayer/4?version=normal", url);
-    url = Query.cards().tcgplayerId().withId(4).withVersion().artCrop().build();
+    url = ScryfallQuery.cards().tcgplayerId().withId(4).withVersion().artCrop().build();
     assertEquals("https://api.scryfall.com/cards/tcgplayer/4?version=art_crop", url);
-    url = Query.cards().tcgplayerId().withId(4).withVersion().borderCrop().build();
+    url = ScryfallQuery.cards().tcgplayerId().withId(4).withVersion().borderCrop().build();
     assertEquals("https://api.scryfall.com/cards/tcgplayer/4?version=border_crop", url);
-    url = Query.cards().tcgplayerId().withId(4).withVersion().png().build();
+    url = ScryfallQuery.cards().tcgplayerId().withId(4).withVersion().png().build();
     assertEquals("https://api.scryfall.com/cards/tcgplayer/4?version=png", url);
 
     // non-default
-    url = Query.cards().tcgplayerId().withId(4).withPretty().build();
+    url = ScryfallQuery.cards().tcgplayerId().withId(4).withPretty().build();
     assertEquals("https://api.scryfall.com/cards/tcgplayer/4?pretty=true", url);
 
   }

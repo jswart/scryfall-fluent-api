@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import io.github.jswart.scryfallfluentapi.query.Query;
+import io.github.jswart.scryfallfluentapi.query.ScryfallQuery;
 
 /**
  * @author jake swart
@@ -15,19 +15,19 @@ public class CatalogLoyaltiesTest {
   public void runtTests() {
 
     // no options
-    String url = Query.catalog().loyalties().build();
+    String url = ScryfallQuery.catalog().loyalties().build();
     assertEquals("https://api.scryfall.com/catalog/loyalties", url);
 
     // default
-    url = Query.catalog().loyalties().withFormat().json().build();
+    url = ScryfallQuery.catalog().loyalties().withFormat().json().build();
     assertEquals("https://api.scryfall.com/catalog/loyalties", url);
 
     // non-default
-    url = Query.catalog().loyalties().withPretty().build();
+    url = ScryfallQuery.catalog().loyalties().withPretty().build();
     assertEquals("https://api.scryfall.com/catalog/loyalties?pretty=true", url);
 
     // verbose
-    url = Query.catalog().loyalties().buildVerbose();
+    url = ScryfallQuery.catalog().loyalties().buildVerbose();
     assertEquals("https://api.scryfall.com/catalog/loyalties?format=json&pretty=false", url);
 
   }

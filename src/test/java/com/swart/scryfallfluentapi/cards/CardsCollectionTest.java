@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import io.github.jswart.scryfallfluentapi.query.Query;
+import io.github.jswart.scryfallfluentapi.query.ScryfallQuery;
 
 /**
  * @author jake swart
@@ -18,21 +18,21 @@ public class CardsCollectionTest {
 
     // no options
     try {
-      url = Query.cards().collection().build();
+      url = ScryfallQuery.cards().collection().build();
     } catch (final Exception e) {
       assert (false);
     }
 
     // exact
-    url = Query.cards().collection().build();
+    url = ScryfallQuery.cards().collection().build();
     assertEquals("https://api.scryfall.com/cards/collection", url);
 
     // non-default
-    url = Query.cards().collection().withPretty().build();
+    url = ScryfallQuery.cards().collection().withPretty().build();
     assertEquals("https://api.scryfall.com/cards/collection?pretty=true", url);
 
     // verbose
-    url = Query.cards().collection().buildVerbose();
+    url = ScryfallQuery.cards().collection().buildVerbose();
     assertEquals("https://api.scryfall.com/cards/collection?pretty=false", url);
 
   }

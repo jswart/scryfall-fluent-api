@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import io.github.jswart.scryfallfluentapi.query.Query;
+import io.github.jswart.scryfallfluentapi.query.ScryfallQuery;
 
 /**
  * @author jake swart
@@ -15,19 +15,19 @@ public class CatalogSpellTypesTest {
   public void runtTests() {
 
     // no options
-    String url = Query.catalog().spelltypes().build();
+    String url = ScryfallQuery.catalog().spelltypes().build();
     assertEquals("https://api.scryfall.com/catalog/spell-types", url);
 
     // default
-    url = Query.catalog().spelltypes().withFormat().json().build();
+    url = ScryfallQuery.catalog().spelltypes().withFormat().json().build();
     assertEquals("https://api.scryfall.com/catalog/spell-types", url);
 
     // non-default
-    url = Query.catalog().spelltypes().withPretty().build();
+    url = ScryfallQuery.catalog().spelltypes().withPretty().build();
     assertEquals("https://api.scryfall.com/catalog/spell-types?pretty=true", url);
 
     // verbose
-    url = Query.catalog().spelltypes().buildVerbose();
+    url = ScryfallQuery.catalog().spelltypes().buildVerbose();
     assertEquals("https://api.scryfall.com/catalog/spell-types?format=json&pretty=false", url);
 
   }

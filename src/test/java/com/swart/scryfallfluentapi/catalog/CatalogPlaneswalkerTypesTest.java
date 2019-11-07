@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import io.github.jswart.scryfallfluentapi.query.Query;
+import io.github.jswart.scryfallfluentapi.query.ScryfallQuery;
 
 /**
  * @author jake swart
@@ -15,19 +15,19 @@ public class CatalogPlaneswalkerTypesTest {
   public void runtTests() {
 
     // no options
-    String url = Query.catalog().planeswalkertypes().build();
+    String url = ScryfallQuery.catalog().planeswalkertypes().build();
     assertEquals("https://api.scryfall.com/catalog/planeswalker-types", url);
 
     // default
-    url = Query.catalog().planeswalkertypes().withFormat().json().build();
+    url = ScryfallQuery.catalog().planeswalkertypes().withFormat().json().build();
     assertEquals("https://api.scryfall.com/catalog/planeswalker-types", url);
 
     // non-default
-    url = Query.catalog().planeswalkertypes().withPretty().build();
+    url = ScryfallQuery.catalog().planeswalkertypes().withPretty().build();
     assertEquals("https://api.scryfall.com/catalog/planeswalker-types?pretty=true", url);
 
     // verbose
-    url = Query.catalog().planeswalkertypes().buildVerbose();
+    url = ScryfallQuery.catalog().planeswalkertypes().buildVerbose();
     assertEquals("https://api.scryfall.com/catalog/planeswalker-types?format=json&pretty=false", url);
 
   }

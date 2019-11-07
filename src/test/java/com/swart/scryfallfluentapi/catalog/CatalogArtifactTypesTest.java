@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import io.github.jswart.scryfallfluentapi.query.Query;
+import io.github.jswart.scryfallfluentapi.query.ScryfallQuery;
 
 /**
  * @author jake swart
@@ -15,19 +15,19 @@ public class CatalogArtifactTypesTest {
   public void runtTests() {
 
     // no options
-    String url = Query.catalog().artifacttypes().build();
+    String url = ScryfallQuery.catalog().artifacttypes().build();
     assertEquals("https://api.scryfall.com/catalog/artifact-types", url);
 
     // default
-    url = Query.catalog().artifacttypes().withFormat().json().build();
+    url = ScryfallQuery.catalog().artifacttypes().withFormat().json().build();
     assertEquals("https://api.scryfall.com/catalog/artifact-types", url);
 
     // non-default
-    url = Query.catalog().artifacttypes().withPretty().build();
+    url = ScryfallQuery.catalog().artifacttypes().withPretty().build();
     assertEquals("https://api.scryfall.com/catalog/artifact-types?pretty=true", url);
 
     // verbose
-    url = Query.catalog().artifacttypes().buildVerbose();
+    url = ScryfallQuery.catalog().artifacttypes().buildVerbose();
     assertEquals("https://api.scryfall.com/catalog/artifact-types?format=json&pretty=false", url);
 
   }

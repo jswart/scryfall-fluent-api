@@ -9,7 +9,7 @@ import io.github.jswart.scryfallfluentapi.query.sets.SetsInf;
 import io.github.jswart.scryfallfluentapi.query.symbology.SymbologyImpl;
 import io.github.jswart.scryfallfluentapi.query.symbology.SymbologyInf;
 
-public class Query {
+public class ScryfallQuery {
 
   public static CardsInf cards() {
     return new CardsImpl();
