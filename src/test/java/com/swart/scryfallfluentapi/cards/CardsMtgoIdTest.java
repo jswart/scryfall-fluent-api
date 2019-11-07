@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import com.swart.scryfallfluentapi.query.Query;
+import io.github.jswart.scryfallfluentapi.query.Query;
 
 /**
  * @author jake swart
